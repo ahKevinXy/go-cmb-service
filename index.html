@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>接口文档 | go cmb 接口服务文档</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/go-cmb-service/assets/css/0.styles.54476288.css" as="style"><link rel="preload" href="/go-cmb-service/assets/js/app.8317c430.js" as="script"><link rel="preload" href="/go-cmb-service/assets/js/2.6b092d03.js" as="script"><link rel="preload" href="/go-cmb-service/assets/js/7.6240164a.js" as="script"><link rel="prefetch" href="/go-cmb-service/assets/js/3.7b5677be.js"><link rel="prefetch" href="/go-cmb-service/assets/js/4.fca4814b.js"><link rel="prefetch" href="/go-cmb-service/assets/js/5.925cb319.js"><link rel="prefetch" href="/go-cmb-service/assets/js/6.4e53a11e.js">
+    <link rel="stylesheet" href="/go-cmb-service/assets/css/0.styles.54476288.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/go-cmb-service/" aria-current="page" class="home-link router-link-exact-active router-link-active"><!----> <span class="site-name">go cmb 接口服务文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="接口文档"><a href="#接口文档" class="header-anchor">#</a> 接口文档</h1> <p>接口说明:</p> <p><code>Base Url</code> <strong>http://127.0.0.1:8000/v1/cmb/</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;msg&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="交易管家"><a href="#交易管家" class="header-anchor">#</a> 交易管家</h2> <h3 id="获取代发交易模式"><a href="#获取代发交易模式" class="header-anchor">#</a> 获取代发交易模式</h3> <blockquote><p>获取模式代发,超网代发支付模式使用</p></blockquote> <p>POST payroll/mods</p> <blockquote><p>Body 请求参数</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;bus_code&quot;</span><span class="token operator">:</span> <span class="token string">&quot;N03020&quot;</span> 
+<span class="token punctuation">}</span>
+</code></pre></div><p>请求参数</p> <table><thead><tr><th>字段</th> <th>说明</th> <th>备注</th></tr></thead> <tbody><tr><td>bus_code</td> <td>交易模式</td> <td>默认 N03020</td></tr></tbody></table> <blockquote><p>返回示例</p></blockquote> <blockquote><p>200 Response</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;msg&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;mod_name&quot;</span><span class="token operator">:</span><span class="token string">&quot;测试1&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;mod_no&quot;</span><span class="token operator">:</span> <span class="token string">&quot;000001&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;eft_at&quot;</span><span class="token operator">:</span> <span class="token string">&quot;20230708&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token string">&quot;A&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;exp_at&quot;</span><span class="token operator">:</span> <span class="token string">&quot;20240708&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>返回参数说明</p> <table><thead><tr><th>字段</th> <th>说明</th> <th>备注</th></tr></thead> <tbody><tr><td>mod_no</td> <td>模式编号</td> <td></td></tr> <tr><td>mod_name</td> <td>模式名称</td> <td></td></tr> <tr><td>status</td> <td>状态</td> <td>状态 A 有效 B 关闭</td></tr> <tr><td>eft_at</td> <td>生效时间</td> <td></td></tr> <tr><td>exp_at</td> <td>失效时间</td> <td></td></tr></tbody></table> <p><code>异常返回</code></p> <h3 id="添加单个记账单元"><a href="#添加单个记账单元" class="header-anchor">#</a> 添加单个记账单元</h3> <p>POST  sub_account/add</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;sub_account_name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;测试1&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>请求参数</p> <table><thead><tr><th>字段</th> <th>说明</th> <th>备注</th></tr></thead> <tbody><tr><td>sub_account_name</td> <td>记账单元名称</td> <td></td></tr></tbody></table> <blockquote><p>返回示例</p></blockquote> <blockquote><p>200 Response</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code>
+
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="关闭记账单元"><a href="#关闭记账单元" class="header-anchor">#</a> 关闭记账单元</h3> <blockquote><p>关闭记账单元 (可以不对接) 主要测试验收使用</p></blockquote> <p><code>POST</code></p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="获取单天交易"><a href="#获取单天交易" class="header-anchor">#</a> 获取单天交易</h3> <blockquote><p>该接口用于查询记账子单元的当日交易明细包括交易时间、借贷金额、币种、收付方名称、收付方账号、交易摘要、记账子单元编号、记账子单元名称、记账流水号以及是否关联付方匹配等信息</p></blockquote> <p><code>POST</code></p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="获取历史交易"><a href="#获取历史交易" class="header-anchor">#</a> 获取历史交易</h3> <blockquote><p>该接口用于查询记账子单元的历史交易明细，即已记入记账子单元的历史交易，包括交易日期、交易时间、借贷金额、币种、收付方名称、收付方账号、交易摘要、记账子单元编号、记账子单元名称、记账方式、记账流水号以及是否关联付方匹配等信息。</p></blockquote> <p><code>POST</code></p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="获取记账单元余额"><a href="#获取记账单元余额" class="header-anchor">#</a> 获取记账单元余额</h3> <blockquote><p>获取对应记账单元余额 (默认批量获取 ,指定对应编号获取对应记账单元)</p></blockquote> <p>POST   sub_account/balance</p> <p>请求参数</p> <table><thead><tr><th>字段</th> <th>说明</th> <th>备注</th></tr></thead> <tbody><tr><td>sub_account</td> <td>记账单元编号</td> <td>空为所有余额</td></tr></tbody></table> <p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h2 id="代发代扣"><a href="#代发代扣" class="header-anchor">#</a> 代发代扣</h2> <h3 id="超网代发"><a href="#超网代发" class="header-anchor">#</a> 超网代发</h3> <blockquote><p>批量或者单个进行超网代发</p></blockquote> <p><code>POST</code> payroll/pay</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="代发结果查询-按业务参考号"><a href="#代发结果查询-按业务参考号" class="header-anchor">#</a> 代发结果查询-按业务参考号</h3> <blockquote><p>根据代发经办请求报文中的业务参考号查询批次的概要信息，同一业务参考号可能对应多笔，但只有一笔是成功的。</p></blockquote> <p><code>POST</code> payroll/pay</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="超网代发-查询交易明细信息"><a href="#超网代发-查询交易明细信息" class="header-anchor">#</a> 超网代发 查询交易明细信息</h3> <blockquote><p>批量或者单个进行超网代发</p></blockquote> <p><code>POST</code> payroll/pay</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="超网代发-查询交易明细信息-2"><a href="#超网代发-查询交易明细信息-2" class="header-anchor">#</a> 超网代发 查询交易明细信息</h3> <blockquote><p>批量或者单个进行超网代发</p></blockquote> <p><code>POST</code> payroll/pay</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="代发退票明细查询"><a href="#代发退票明细查询" class="header-anchor">#</a> 代发退票明细查询</h3> <blockquote><p>用于代发退票明细的查询。</p></blockquote> <p><code>POST</code> payroll/pay</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="代发明细对账单查询请求"><a href="#代发明细对账单查询请求" class="header-anchor">#</a> 代发明细对账单查询请求</h3> <blockquote><p>用于代发明细对账单查询，采用异步的方式，生成PDF文件，该请求需要开通N66010:代发业务明细对账单业务功能，且当前查询用户需要有该查询账号对应业务的可经办权限。</p></blockquote> <p><code>POST</code> payroll/pay</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="代发明细对账单处理结果查询请求"><a href="#代发明细对账单处理结果查询请求" class="header-anchor">#</a> 代发明细对账单处理结果查询请求</h3> <blockquote><p>用于查询代发明细对账单请求处理结果。 获取回单地址</p></blockquote> <p><code>POST</code> payroll/pay</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h2 id="账务处理"><a href="#账务处理" class="header-anchor">#</a> 账务处理</h2> <h3 id="可经办业务模式查询"><a href="#可经办业务模式查询" class="header-anchor">#</a> 可经办业务模式查询</h3> <blockquote><p>用于查询代发明细对账单请求处理结果。 获取回单地址</p></blockquote> <p><code>POST</code> pay/mods</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="账户详情"><a href="#账户详情" class="header-anchor">#</a> 账户详情</h3> <blockquote><p>查询账户的详细信息，包括账户的实时余额，账户性质，开户分行，开户日期，利率，到期日，存期等要素。</p></blockquote> <p><code>POST</code> pay/mods</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="查询账户历史余额"><a href="#查询账户历史余额" class="header-anchor">#</a> 查询账户历史余额</h3> <blockquote><p>用于查询账户历史某一段时间内的余额。</p></blockquote> <p><code>POST</code> pay/mods</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="单笔回单查询"><a href="#单笔回单查询" class="header-anchor">#</a> 单笔回单查询</h3> <blockquote><p>该接口主要用于根据流水号查询单笔交易回单。日期需为回单产生的日期，流水号可通过账户交易信息查询trsQryByBreakPoint请求返回接口transSequenceIdn字段获取。</p></blockquote> <p><code>POST</code> pay/mods</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="单笔回单查询-2"><a href="#单笔回单查询-2" class="header-anchor">#</a> 单笔回单查询</h3> <blockquote><p>该接口主要用于根据流水号查询单笔交易回单。日期需为回单产生的日期，流水号可通过账户交易信息查询trsQryByBreakPoint请求返回接口transSequenceIdn字段获取。</p></blockquote> <p><code>POST</code> pay/mods</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="单笔回单查询-3"><a href="#单笔回单查询-3" class="header-anchor">#</a> 单笔回单查询</h3> <blockquote><p>该接口主要用于根据流水号查询单笔交易回单。日期需为回单产生的日期，流水号可通过账户交易信息查询trsQryByBreakPoint请求返回接口transSequenceIdn字段获取。</p></blockquote> <p><code>POST</code> pay/mods</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="企银支付单笔经办"><a href="#企银支付单笔经办" class="header-anchor">#</a> 企银支付单笔经办</h3> <blockquote><p>用于发起单笔支付经办</p></blockquote> <p><code>POST</code> pay/mods</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="企银支付业务查询"><a href="#企银支付业务查询" class="header-anchor">#</a> 企银支付业务查询</h3> <blockquote><p>用于发起单笔支付经办</p></blockquote> <p><code>POST</code> pay/mods</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p> <h3 id="支付退票明细查询"><a href="#支付退票明细查询" class="header-anchor">#</a> 支付退票明细查询</h3> <blockquote><p>用于对银行退票明细的查询。当收方是他行，结算通道为：R 实时-超网时，不支持退票查询。</p></blockquote> <p><code>POST</code> pay/mods</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数</p> <div class="language-json extra-class"><pre class="language-json"><code>
+</code></pre></div><p>返回参数说明</p> <p><code>异常返回</code></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/go-cmb-service/assets/js/app.8317c430.js" defer></script><script src="/go-cmb-service/assets/js/2.6b092d03.js" defer></script><script src="/go-cmb-service/assets/js/7.6240164a.js" defer></script>
+  </body>
+</html>
