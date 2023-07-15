@@ -693,3 +693,39 @@ POST   sub_account/balances
 
 
 `异常返回`
+
+
+
+## 构建与部署 
+
+
+### 直接下载打包文件模式
+1. 下载打包好文件
+2. 创建配置文件夹 configs
+3. 设置配置文件
+
+```bash
+wget '打包文件路径'
+go-cmb-service --configs=./configs/cmb.yaml
+```
+
+## 自己下载源码构建模式
+
+
+```bash 
+git clone https://github.com/ahKevinXy/go-cmb-service.git
+
+# linux 平台构建方式
+ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o  go-cmb-service
+  
+# mac 平台构建方式 
+ CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o  go-cmb-service
+
+# windows 平台构建方式
+ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o  go-cmb-service
+ 
+ # 创建配置文件
+ 
+ go-cmb-service --configs=./configs/cmb.yaml
+
+```
