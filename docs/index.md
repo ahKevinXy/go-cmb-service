@@ -255,6 +255,25 @@ POST   sub_account/balances
 
 ```json
 
+{
+  "total_info": {
+    "total_num": "总笔数如果 一个代发1",
+    "total_amount": "总金额",
+    "bus_no":"业务单号(自己制单生成的业务单号)",
+    "sub_account_no": "子单元编号(如果为空 从默认记账单元支付)",
+    "bus_code": "交易号码 从查询业务单号获取,这个可以固定"
+    
+  },
+  "detail_info": [
+    {
+      "name": "姓名",
+      "bank_card_no": "卡号",
+      "trs_no": "交易序号",
+      "amount": "交易金额(eg:1.01,1.00)",
+      "remark": "回单备注"
+    }
+  ]
+}
 ```
 
 返回参数
