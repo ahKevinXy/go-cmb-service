@@ -19,10 +19,13 @@ module.exports = {
         // '@vuepress/pwa'
     ],
     themeConfig: {
+
+        repo:'https://github.com/ahKevinXy/go-cmb-service',
         search: true,
+        smoothScroll: true,
 
         sidebar:'auto',
-
+        lastUpdated:"最新更新时间",
         dateFormat: 'YYYY-MM-DD',
 
         /**
@@ -38,11 +41,7 @@ module.exports = {
             copyright: [{
                 text: 'opencodes',
                 link: '/',
-            },
-                {
-                    text: '',
-                    link: '',
-                },
+            }
             ],
         },
         directories:[
