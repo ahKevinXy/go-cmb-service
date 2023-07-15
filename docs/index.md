@@ -489,13 +489,14 @@ POST   sub_account/balances
 
 返回参数说明
 
-| 字段                | 说明 | 备注  |
-|-------------------|--|-----|
+| 字段                | 说明   | 备注  |
+|-------------------|------|-----|
 | available_balance | 可用余额 |     |
-| account           | 账户 |     |
+| account           | 账户   |     |
 
 
 
+ 
 `异常返回`
 
 
@@ -570,8 +571,33 @@ POST   sub_account/balances
 
 
 ```json
-
+{
+  "bank_name": "招商银行",
+  "bank_link_no": "21",
+  "op_bank_name": "开户行名称",
+  "account_name": "账号名称",
+  "account": "账户",
+  "amount": "10000",
+  "remark": "提现退费",
+  "mod_no": "",
+  "bus_no": "",
+  "sub_account_no": "00000001"
+}
 ```
+请求参数说明
+
+| 字段             | 说明           | 备注           |
+|----------------|--------------|--------------|
+| bank_name      | 银行名称         |              |
+| bank_link_no   | 银联号          |              |
+| op_bank_name   | 开户行          |              |
+| account_name   | 账号名称         |              |
+| account        | 卡号           |              |
+| remark         | 备注(回单上可以显示)  |              |
+| bus_no         | 业务流水号        |              |
+| mod_no         | 请求支付业务模式进行选择 |              |
+| sub_account_no | 记账单元号码       | 如果为空默认从主账户支付 |
+
 
 返回参数说明
 
@@ -580,14 +606,23 @@ POST   sub_account/balances
 
 ### 企银支付业务查询
 
->  用于发起单笔支付经办 获取对公支付模式
+>  用于发起单笔支付经办 获取支付结果查询 通过支付的bus_no 进行查询
 
 
 `POST` pay/mods
 
 ```json
+{
+  "bus_no": ""
+}
 
 ```
+参数说明
+
+| 字段     | 说明          | 备注  |
+|--------|-------------|-----|
+| bus_no | 支付请求输入的业务单号 |     |
+
 
 返回参数
 

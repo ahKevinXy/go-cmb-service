@@ -1,9 +1,12 @@
 package api
 
 import (
+	"fmt"
 	"github.com/ahKevinXy/go-cmb/handler/account"
 	"github.com/gin-gonic/gin"
+	"go-cmb-service/constant"
 	"go-cmb-service/help"
+	"go-cmb-service/models/request"
 	"go-cmb-service/models/response"
 	"go-cmb-service/pkg/config"
 )
@@ -54,6 +57,35 @@ func GetMainAccountTrans(c *gin.Context) {
 //  @Author  ahKevinXy
 //  @Date  2023-07-15 11:45:53
 func PayByP2P(c *gin.Context) {
+	var req request.P2pPay
+	//todo
+	if err := c.BindJSON(&req); err != nil {
+		return
+	}
+	single, err := account.MainAccountPaySingle(config.CmbConfig.UserId,
+		config.CmbConfig.Sm2Key,
+		config.CmbConfig.PriKey,
+		config.CmbConfig.MainAccount,
+		"",
+		constant.PayrollBusCode,
+		req.ModNo,
+		req.AccountName,
+		req.Account,
+		req.BankName,
+		"",
+		"",
+		req.Amount,
+		req.BankLinkNo,
+		req.Remark,
+		req.BusNo,
+		"",
+		"",
+	)
+	if err != nil {
+		return
+	}
+
+	fmt.Println(single)
 
 }
 
