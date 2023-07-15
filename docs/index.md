@@ -278,7 +278,7 @@ POST   sub_account/balances
     "total_amount": "总金额",
     "biz_no":"业务单号(自己制单生成的业务单号)",
     "sub_account_no": "子单元编号(如果为空 从默认记账单元支付)",
-    "bus_code": "交易号码 从查询业务单号获取,(这个可以固定)g"
+    "mod_no": "交易号码 从查询业务单号获取,(这个可以固定)g"
     
   },
   "detail_info": [
