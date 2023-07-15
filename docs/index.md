@@ -13,6 +13,20 @@
 
 :::
 
+
+:::info
+
+关键字段说明:
+1. sub_account_no 记账单元编号  主账号 + 记账单元编号 = 收款卡号 (充值的时候 平台公司名称 + 收款卡号 )
+2. sub_account_name 主要标记 名称 例如商户名称 A 就可以设置A  或者包工头 B 就可以设置 B 主要为了银联端查看区分
+3. biz_no 业务单号 每次生成都会需要提交 相对与业务单号
+4. bus_code 银行端业务编号 
+5. bus_no  银行端编号
+6. bus_name 银行端编号名称
+
+
+:::
+
 **基础请求参数**
 
 ```json
@@ -87,7 +101,8 @@ POST  sub_account/add
 
 ```json
 {
-  "sub_account_name": "测试1"
+  "sub_account_name": "测试1",
+  "sub_account_no": "记账单元编号"
 }
 ```
 
