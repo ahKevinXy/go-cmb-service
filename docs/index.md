@@ -13,6 +13,7 @@
 
 :::
 
+**基础请求参数**
 
 ```json
 {
@@ -259,9 +260,9 @@ POST   sub_account/balances
   "total_info": {
     "total_num": "总笔数如果 一个代发1",
     "total_amount": "总金额",
-    "bus_no":"业务单号(自己制单生成的业务单号)",
+    "biz_no":"业务单号(自己制单生成的业务单号)",
     "sub_account_no": "子单元编号(如果为空 从默认记账单元支付)",
-    "bus_code": "交易号码 从查询业务单号获取,这个可以固定"
+    "bus_code": "交易号码 从查询业务单号获取,(这个可以固定)g"
     
   },
   "detail_info": [
@@ -275,7 +276,6 @@ POST   sub_account/balances
   ]
 }
 ```
-
 返回参数
 
 
@@ -632,7 +632,7 @@ POST   sub_account/balances
 
 ```json
 {
-  "bus_no": ""
+  "biz_no": ""
 }
 
 ```
@@ -640,7 +640,7 @@ POST   sub_account/balances
 
 | 字段     | 说明          | 备注  |
 |--------|-------------|-----|
-| bus_no | 支付请求输入的业务单号 |     |
+| biz_no | 支付请求输入的业务单号 |     |
 
 
 返回参数
