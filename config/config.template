@@ -1,0 +1,18 @@
+application:
+  port: "9001"
+  host: "127.0.0.1"
+  mode: "prod"
+  version: "1.0.0"
+  name: "[go_cmb_service]"
+
+
+cmb:
+  sass_name: ""
+  sass_key: ""
+  url: "http://cdctest.cmburl.cn/cdcserver/api/v2"
+  default_text: "__signature_sigdat__"
+  user_id: ""
+  sm2_key: ""
+  pri_key: ""
+  main_account: ""
+
