@@ -709,7 +709,7 @@ wget '打包文件路径'
 go-cmb-service --configs=./configs/cmb.yaml
 ```
 
-## 自己下载源码构建模式
+### 自己下载源码构建模式
 
 
 ```bash 
