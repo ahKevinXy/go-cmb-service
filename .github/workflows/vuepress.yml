@@ -1,12 +1,13 @@
 name: docs
 
 on:
-  # 每当 push 到 main 分支时触发部署
-  push:
-    branches: [master]
-  # 手动触发部署
   release:
     types: [ created ]
+  # 每当 push 到 main 分支时触发部署
+#  push:
+#    branches: [master]
+  # 手动触发部署
+
 
 jobs:
   docs:
