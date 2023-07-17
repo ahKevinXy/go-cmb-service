@@ -55,33 +55,25 @@ jobs:
           # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  release:
-    name: Build with go On and Upload
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: SetUp Go
-        uses: actions/setup-go@v1
-        with:
-          go-version: 1.18
-      - name: Check out code into the Go module directory
-        uses: actions/checkout@v1
-      - name: Get dependencies
-        run: |
-          go mod tidy
-
-      - name: Build
-        run: |
-          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o  ./bin/go-cmb-service_linux 
-          CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o  ./bin/go-cmb-service_mac 
-          CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o  ./bin/go-cmb-service.exe
-          
-      - name: Upload To Relase
-        uses: JasonEtco/upload-to-release@master
-        with:
-          args: ./bin/go-cmb-service_linux  ./bin/go-cmb-service_mac ./bin/go-cmb-service.exe
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  build-go-binary:
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          goos: [linux, windows, darwin] # 需要打包的系统
+          goarch: [amd64, arm64] # 需要打包的架构
+          exclude: # 排除某些平台和架构
+            - goarch: arm64
+              goos: windows
+      steps:
+        - uses: actions/checkout@v3
+        - uses: wangyoucao577/go-release-action@v1.30
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }} # 一个默认的变量，用来实现往 Release 中添加文件
+            goos: ${{ matrix.goos }}
+            goarch: ${{ matrix.goarch }}
+            goversion: 1.18 # 可以指定编译使用的 Golang 版本
+            binary_name: "go-cmb-service" # 可以指定二进制文件的名称
+            extra_files: README.md config.dev.json # 需要包含的额外文件
 
 
  
