@@ -17,11 +17,12 @@ func Routers() *gin.Engine {
 	// 超网代发
 	group.POST("payroll/pay/sup", api.SupPayroll)
 
-	//超网代发
+	// 结果查询
+	group.POST("payroll/result", api.QuerySupPayrollDetail)
 
-	// 添加记账单元
+	// 查询退票
 
-	// 代发
+	group.POST("payroll/refund/query", api.QuerySupPayRefund)
 
 	// 申请回单
 

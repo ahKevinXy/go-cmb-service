@@ -54,3 +54,35 @@ jobs:
         env:
           # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release:
+    name: Build with go On and Upload
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: SetUp Go
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.18
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v1
+      - name: Get dependencies
+        run: |
+          go mod tidy
+
+      - name: Build
+        run: |
+          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o  ./bin/go-cmb-service_linux 
+          CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o  ./bin/go-cmb-service_mac 
+          CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o  ./bin/go-cmb-service.exe
+          
+      - name: Upload To Relase
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: ./bin/go-cmb-service_linux  ./bin/go-cmb-service_mac ./bin/go-cmb-service.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+ 
+        
